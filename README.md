@@ -1,4 +1,14 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# RIF Storage Demo app
+
+> Demo application to see integrate [RIF Storage.js](https://github.com/rsksmart/rif-storage-js) library
+
+# Usage
+
+ 1. Run Swarm and IPFS node
+ 1. Configure Swarm / IPFS node connection settings ([here](https://github.com/rsksmart/rif-storage-ui-demo/blob/master/src/providers/UploadProvider.tsx#L47)) or use the defaults (IPFS: `localhost:5001`, Swarm: `localhost:8500`).
+ 1. Run `npm install` and `npm start`
+
+You can see the implementation of the RIF Storage.js in [`./src/providers/UploadProvider.tsx`](https://github.com/rsksmart/rif-storage-ui-demo/blob/master/src/providers/UploadProvider.tsx) file.
 
 ## Available Scripts
 

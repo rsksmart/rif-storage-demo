@@ -26,7 +26,10 @@ export default () => (
           onSubmit={async ({ hash }: IFormValues, actions) => {
             const result = await download(hash);
             if (isFile(result)) {
-              saveAs(new Blob([result]));
+              saveAs(new Blob([result as Buffer]));
+            } else if (Object.keys(result).length === 1) {
+              const filename = Object.keys(result)[0]
+              saveAs(new Blob([result[filename].data]), filename);
             } else {
               // TODO: Offer download of the files
               console.log(Object.keys(result));

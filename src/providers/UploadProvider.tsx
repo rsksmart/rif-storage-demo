@@ -1,4 +1,4 @@
-import { Directory, DirectoryArrayEntry, Manager, Provider as EPROVIDER_TYPE } from '@rsksmart/rif-storage'
+import { Directory, Entry, Manager, Provider as EPROVIDER_TYPE } from '@rsksmart/rif-storage'
 import toBuffer from 'blob-to-buffer'
 import React, { Component, createContext } from "react";
 
@@ -45,7 +45,7 @@ class UploadProvider extends Component<
 
     // TODO: Set some Swarm nodes address here
     this.manager.addProvider(EPROVIDER_TYPE.SWARM, { url: 'http://localhost:8500' })
-    this.manager.addProvider(EPROVIDER_TYPE.IPFS, '/ip4/64.225.12.177/tcp/1212')
+    this.manager.addProvider(EPROVIDER_TYPE.IPFS, '/ip4/127.0.0.1/tcp/5001')
     this.state = { provider: EPROVIDER_TYPE.SWARM };
 
     this.setProvider = this.setProvider.bind(this);
@@ -89,8 +89,8 @@ class UploadProvider extends Component<
     );
   }
 
-  private async mapFile(file: File): Promise<DirectoryArrayEntry<Buffer>> {
-    const data = new Promise((resolve, reject) => {
+  private async mapFile(file: File): Promise<Entry<Buffer>> {
+    const data: Promise<Buffer> = new Promise((resolve, reject) => {
       toBuffer(file, (err, buffer) => {
         if(err){
           reject(err)
@@ -100,7 +100,6 @@ class UploadProvider extends Component<
     })
 
     return {
-      contentType: file.type,
       data: await data,
       path: file.name,
       size: file.size,
