@@ -1,10 +1,10 @@
 # RIF Storage Demo app
 
-> Demo application to see integrate [RIF Storage.js](https://github.com/rsksmart/rif-storage-js) library
+> Demo application to see integration of [RIF Storage.js](https://github.com/rsksmart/rif-storage-js) library
 
 # Usage
 
- 1. Run Swarm and IPFS node
+ 1. Run Swarm and IPFS node (you can use the attached script `./start_swarm_node.sh` to startup non-persistent Swarm node using Docker)
  1. Configure Swarm / IPFS node connection settings ([here](https://github.com/rsksmart/rif-storage-ui-demo/blob/master/src/providers/UploadProvider.tsx#L47)) or use the defaults (IPFS: `localhost:5001`, Swarm: `localhost:8500`).
  1. Run `npm install` and `npm start`
 
